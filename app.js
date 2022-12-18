@@ -19,3 +19,14 @@ const displayProduct = () => {
     .join("");
 };
 displayProduct();
+
+const form = document.querySelector(".input-form");
+const searchInput = document.querySelector(".search-input");
+
+form.addEventListener("keyup", () => {
+  const inputValue = searchInput.value;
+  filteredProduct = products.filter((product) => {
+    return product.title.toLowerCase().includes(inputValue);
+  });
+  displayProduct();
+});
