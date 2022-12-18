@@ -3,6 +3,10 @@ let filteredProduct = [...products];
 const producContainer = document.querySelector(".products-container");
 
 const displayProduct = () => {
+  if (filteredProduct.length < 1) {
+    producContainer.innerHTML = `<h6>Sorry, no products matched to your request</h6>`;
+    return;
+  }
   producContainer.innerHTML = filteredProduct
     .map(({ id, title, image, price }) => {
       return `  <article class="product" data-id="${id}">
