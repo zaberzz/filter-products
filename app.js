@@ -50,3 +50,18 @@ const displayButton = () => {
     .join("");
 };
 displayButton();
+
+companyDOM.addEventListener("click", (e) => {
+  const el = e.target;
+  if (el.classList.contains("company-btn")) {
+    if (el.dataset.id === "all") {
+      filteredProduct = [...products];
+    } else {
+      filteredProduct = products.filter((product) => {
+        return product.company === el.dataset.id;
+      });
+    }
+    searchInput.value = "";
+    displayProduct();
+  }
+});
